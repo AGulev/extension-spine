@@ -27,7 +27,8 @@ jobs:
 
       - name: Get Defold version
         run: |
-          TMPVAR=`curl -s http://d.defold.com/stable/${{env.VERSION_FILENAME}} | jq -r '.sha1'`
+          #TMPVAR=`curl -s http://d.defold.com/stable/${{env.VERSION_FILENAME}} | jq -r '.sha1'`
+          TMPVAR="7f30aa7d0d3286d17265f265a1c02e94cae49f8a"
           echo "DEFOLD_VERSION=${TMPVAR}" >> $GITHUB_ENV
           echo "Found version ${TMPVAR}"
 
@@ -41,15 +42,6 @@ jobs:
 
       - name: LDD
         run: ldd ./defold-spine/plugins/lib/x86_64-linux/libSpineExt.so
-
-      - name: GLIBC version
-        run: strings /lib/x86_64-linux-gnu/libc.so.6 | grep GLIBC
-
-      - name: GLIBCXX version
-        run: strings /lib/x86_64-linux-gnu/libstdc++.so.6 | grep GLIBCXX
-
-      - name: test2.sh
-        run: ./test2.sh
 
       - name: Resolve libraries
         run: java -jar bob.jar resolve --email a@b.com --auth 123456
