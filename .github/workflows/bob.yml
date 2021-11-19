@@ -28,7 +28,7 @@ jobs:
       - name: Get Defold version
         run: |
           #TMPVAR=`curl -s http://d.defold.com/stable/${{env.VERSION_FILENAME}} | jq -r '.sha1'`
-          TMPVAR="7f30aa7d0d3286d17265f265a1c02e94cae49f8a"
+          TMPVAR="130049e197758f3870ca6b2f192c72d08feb353a"
           echo "DEFOLD_VERSION=${TMPVAR}" >> $GITHUB_ENV
           echo "Found version ${TMPVAR}"
 
