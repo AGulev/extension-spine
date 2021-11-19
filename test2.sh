@@ -10,6 +10,8 @@
 JNA_PATH="./"
 JAVA_LIB_PATH="./"
 
-JAVA=/usr/lib/jvm/java-16-openjdk-amd64/bin/java
+if [ "" == "${JAVA}" ]; then
+	JAVA=$(which java)
+fi
 
 $JAVA -Djna.debug_load=true -Djna.library.path=${JNA_PATH} -Djava.library.path=${JAVA_LIB_PATH} -cp jna-5.10.0.jar:bob.jar:. HelloWorld 
