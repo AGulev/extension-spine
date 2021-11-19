@@ -42,7 +42,7 @@ jobs:
 
       - name: Installing Shared Library Dependencies
         run: |
-          sudo apt-get install -y libopenal-dev libgl1-mesa-dev
+          sudo apt-get install -y libopenal-dev freeglut3-dev
 
       - name: Check shared dependencies
         run: |
