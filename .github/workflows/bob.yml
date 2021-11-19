@@ -40,6 +40,10 @@ jobs:
       - name: NM
         run: nm ./defold-spine/plugins/lib/x86_64-linux/libSpineExt.so
 
+      - name: Installing Shared Library Dependencies
+        run: |
+          sudo apt-get install -y libopenal-dev libgl1-mesa-dev
+
       - name: Check shared dependencies
         run: |
           PLUGIN=$(awk -F "=" '/PLUGIN_SO/ {print $2}' .github/workflows/settings.ini)
